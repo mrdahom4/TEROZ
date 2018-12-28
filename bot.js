@@ -36,15 +36,6 @@ client.on('ready', () => {
   console.log('')
 });
 
-
-
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`**__Welcome To TE ROZ server__**`) 
-}).catch(console.error)
-})
-
-
 client.on('ready', function(){
     var ms = 200000 ;    
     var setGame = ['#help','TE ROZ'];    
@@ -62,6 +53,15 @@ j = 1;
 }, ms);    
     
 }); 
+
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`**__Welcome To TE ROZ server__**`) 
+}).catch(console.error)
+})
+
+
+
 
 client.on("message", message => {
     var args = message.content.split(' ').slice(1);
@@ -110,24 +110,7 @@ client.on("message", message => {
     }
 });
 
-	
-client.on('ready', function(){
-    var ms = 20000 ;    
-    var setGame = ['#invite','#help','DvBot The One','V1.0'];    
-    var i = -1;    
-    var j = 0;    
-    setInterval(function (){    
-        if( i == -1 ){    
-j = 1;    
-       }    
-        if( i == (setGame.length)-1 ){    
-            j = -1;    
-      }    
-       i = i+j;    
-        client.user.setGame(setGame[i],`https://twitch.tv/Codes`);    
-}, ms);    
-    
-}); 
+ 
 
 client.on('message',async message => {
   if(message.content.startsWith("#voice")) {
