@@ -38,6 +38,11 @@ client.on('ready', () => {
 
 
 
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`**__Welcome To TE ROZ server__**`) 
+}).catch(console.error)
+})
 
 
 client.on('ready', function(){
